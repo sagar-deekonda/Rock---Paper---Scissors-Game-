@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Rock,Paper,Sessor Game!</title>
+
+    <style>
+
+        body {
+            background-image: url("/static/background.png");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            background-attachment: fixed;
+
+            margin: 0;
+        }
+
+        .h1 {
+            background-color: rgb(239, 239, 31);
+            color: black;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            font-family: Arial;
+            font-weight: bold;
+            box-shadow: 5px 2px 0px rgba(0, 0, 0, 0.2);
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 50px;
+
+
+        }
+
+        .h1-color{
+            color: red;
+        }
+
+        .d1{
+            display: flex;
+            gap: 519px;
+            margin-top: 70px;
+            font-family: Arial;
+        }
+
+        .p1{
+            display: inline-block;
+            justify-content: center;
+            margin-left: 50px;
+            margin-top: 24px;
+            border: none;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 15px;
+            background-color: rgb(39, 100, 176);
+            color: rgb(248, 245, 245);
+            padding: 40px;
+            padding-left: 40px;
+            padding-top: 17px;
+            padding-bottom: 17px;
+            cursor: pointer;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+            transition: background-color 0.15s, color 0.15s;
+        }
+
+        .p1:hover{
+            background-color: white;
+            color:rgb(39, 100, 176);
+        }
+
+        .p1:active{
+            opacity: 0.5;
+        }
+
+        .p2{
+            font-family: Arial;
+            font-weight: bold;
+            background-color: rgb(39, 100, 176);
+            color: rgb(248, 245, 245);
+            border-radius: 15px;
+            padding: 20px;
+            padding-right: 50px;
+            padding-left: 50px;
+            text-align: center;
+            margin-left: 50px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+
+        }
+
+        .box{
+            display:flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            
+            
+        }
+
+        .p3{
+            font-family: Arial;
+            width: 350px;
+            height: 150px;
+            border: 2px solid #0056b3;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #f2ecec;
+            margin-left: 20px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+           
+        }
+
+        .c1{
+             display:flex;
+            justify-content: space-around;
+            gap: 330px;
+        }
+
+        .score{
+            font-family: Arial;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #0056b3;
+            padding: 5px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #f2ecec;
+            margin-top: 35px;
+            font-size: small;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        .score-font {
+            font-family: Arial;
+            font-size: x-large;
+            font-weight: bold;
+        }
+
+        .result{
+            display:flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            width: 400px;
+            height:80px;
+            margin-left: 560px;
+            border: 2px solid #0056b3;
+            font-family: Arial;
+            padding-left: 5px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #333333;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+            
+
+        }
+
+        .Restart-Game {
+            font-family: Arial;
+            background-color: rgb(207, 19, 19);
+            color: white;
+            text-align: center;  
+            border-radius: 15px;
+            margin-right: 20px;
+            margin-left: 20px;
+            margin-top: 60px;
+            font-weight: 600;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+            box-shadow:  inset 0px -2px 0px rgba(0, 0, 0, 0.2);
+
+            transition: background-color 0.15s, opacity 0.15s;
+
+        }
+        .Restart-Game:hover{
+            background-color: white;
+            color: rgb(207, 19, 19);
+         }
+        .Restart_Game:active{
+            background-color: rgb(207, 19, 19);
+            color: white;
+        }
+        
+        .Animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow:visible;
+            z-index: 1000;
+        }
+
+        .Animation span {
+            position:fixed;
+            top: -50px;
+            font-size: 30px;
+            animation: fall 5s linear forwards;
+        }
+
+    
+        .Animation span:nth-child(1) {
+            left: 5%;
+            animation-delay: 0.4s;
+        }
+
+        .Animation span:nth-child(2) {
+            left: 15%;
+            animation-delay: 0.3s;
+        }
+
+        .Animation span:nth-child(3) {
+            left: 25%;
+            animation-delay: 0.6s;
+        }
+
+        .Animation span:nth-child(4) {
+            left: 35%;
+            animation-delay: 0.1s;
+        }
+
+        .Animation span:nth-child(5) {
+            left: 45%;
+            animation-delay: 0.5s;
+        }
+
+        .Animation span:nth-child(6) {
+            left: 55%;
+            animation-delay: 0.2s;
+        }
+
+        .Animation span:nth-child(7) {
+            left: 65%;
+            animation-delay: 0.7s;
+        }
+
+        .Animation span:nth-child(8) {
+            left: 80%;
+            animation-delay: 0.4s;
+        }
+
+        .Animation span:nth-child(9) {
+            left: 90%;
+            animation-delay: 0.8s;
+        }
+
+        .Animation span:nth-child(10) {
+            left: 95%;
+            animation-delay: 0.2s;
+        }
+
+        .Animation span:nth-child(11) {
+            left: 2%;
+            animation-delay: 0.5s;
+        }
+
+        .Animation span:nth-child(12) {
+            left: 6%;
+            animation-delay: 0.7s;
+        }
+
+        .Animation span:nth-child(13) {
+            left: 10%;
+            animation-delay: 0.5s;
+
+        }
+
+        .Animation span:nth-child(14) {
+            left: 22%;
+            animation-delay: 0.4s;
+
+        }
+
+        .Animation span:nth-child(15) {
+            left: 39%;
+            animation-delay: 0.3s;
+
+        }
+
+        .Animation span:nth-child(16) {
+            left: 56%;
+            animation-delay: 0.6s;
+
+        }
+
+        .Animation span:nth-child(17) {
+            left: 69%;
+            animation-delay: 0.6s;
+
+        }
+
+        .Animation span:nth-child(18) {
+            left: 84%;
+            animation-delay: 0.4s;
+
+        }
+
+        .Animation span:nth-child(19) {
+            left: 90%;
+            animation-delay: 0.8s;
+
+        }
+
+        .Animation span:nth-child(20) {
+            left: 100%;
+            animation-delay: 0.7s;
+
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+
+
+    </style>
+    </head>
+
+    <body>
+
+        {% if result == "YOU WIN!" %}
+
+            <div class="Animation">
+                <span>🥳</span>
+                <span>🎊</span>
+                <span>✨</span>
+                <span>🎉</span>
+                <span>🥳</span>
+                <span>✨</span>
+                <span>🎉</span>
+                <span>🥳</span>
+                <span>✨</span>
+                <span>🥳</span>
+                <span>🎉</span>
+                <span>🎊</span>
+                <span>✨</span>
+                <span>🥳</span>
+                <span>🎊</span>
+                <span>✨</span>
+                <span>🎉</span>
+                <span>🥳</span>
+                <span>✨</span>
+                <span>🎉</span>
+            </div>
+        {% endif %}
+
+        <h1 class="h1">Welcome to <span class="h1-color">Rock - Paper - Scissors </span>Game!</h1>
+
+        <div class="d1">
+            <div>
+                <form action="/play" method="post">
+
+                    <button class="p1" type="submit" name="choice" value="rock">
+                        Rock 🪨
+                    </button>
+                    <button class="p1" type="submit" name="choice" value="paper">
+                        Paper 📄
+                    </button>
+                    <button class="p1" type="submit" name="choice" value="scissors">
+                        Scissors ✂️
+                    </button>
+                
+                </form>
+            </div>
+
+            <div>
+                <p class="p2">Computer will Select  🤖</p>
+
+            </div>
+        </div>
+
+
+
+        <div class="box">
+
+            <div class="p3">
+                <h3>Player Selected</h3>
+
+                {% if user_choice == "rock" %}
+                    <p class="score-font"> Rock 🪨</p>
+                {% elif user_choice == "paper" %}
+                    <p class="score-font">Paper 📄</p>
+                {% elif user_choice == "scissors" %}
+                    <p class="score-font">Scissors ✂️</p>
+                {% else %}
+                    <p>Waiting for your choice...</p>
+                {%endif%}
+            </div>
+
+            <div class="c1">
+              
+            <div class="score">
+                <h3>Player Score</h3>
+
+                    <p class="score-font">{{ User_Score }}</p>
+
+                </div>
+
+                <div class="score">
+                    <h3>Computer Score</h3>
+
+                        <p class="score-font">{{ Computer_Score }}</p>
+
+                </div>
+
+            </div>
+
+            <div class="p3">
+
+                <h3>Computer Selected</h3>
+
+                {% if computer_choice == "rock" %}
+                    <p class="score-font"> Rock 🪨</p>
+                {% elif computer_choice == "paper" %}
+                    <p class="score-font">Paper 📄</p>
+                {% elif computer_choice == "scissors" %}
+                    <p class="score-font">Scissors ✂️</p>
+                {%endif%}
+
+            </div>
+
+        </div>
+
+        <div class="result">
+
+            
+
+            {% if result == "YOU WIN!" %}
+                <p class="score-font">{{ result }} 🎉🥳</p>
+            {% elif result == "COMPUTER WINS!" %}
+                <p class="score-font">{{ result }} 🤖😅</p>
+            {% elif result == "It's a TIE!" %}
+                <p class="score-font">{{ result }} 🤝🤝</p>
+            {% else %}
+                <p>Result</p>
+            {%endif%}
+
+        </div>
+            
+        
+
+        <div>
+            <p class="Restart-Game">
+                <a href="/reset" >Restart Game</a>
+            </p>
+        </div>
+
+
+
+
+
+    </body>
+
+
+
+</html>
+
+
