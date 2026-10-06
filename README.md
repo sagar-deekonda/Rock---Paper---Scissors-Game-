@@ -181,6 +181,8 @@ http://127.0.0.1:5000
 
 ![Screenshot 1](Screenshot/Screenshot-1.png)
 
+![Screenshot 2](Screenshot/Screenshot-2.png)
+
 
 
 ## 👨‍💻 Author
